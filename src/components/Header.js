@@ -52,7 +52,7 @@ const Header = () => {
             </Link>
 
             {/* Third Link */}
-            <Link to="/addMovie">
+            <Link to="/add">
               <Button
                 color="inherit"
                 style={{

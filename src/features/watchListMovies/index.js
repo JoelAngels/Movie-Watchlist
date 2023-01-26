@@ -3,7 +3,7 @@ import React from "react";
 const WatchListMovies = () => {
   return (
     <div>
-      <h1>Joel</h1>
+      <h1>WatchListMovies</h1>
     </div>
   );
 };
