@@ -1,13 +1,18 @@
 import React from "react";
-
-import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AddMovie from "./features/addMovie";
+import WatchListMovies from "./features/watchListMovies";
+import WatchedMovies from "./features/watchedMovies";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Joel</h1>
-      <h2>Movie WatchList</h2>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<WatchListMovies />} />
+        <Route path="/watched" element={<WatchedMovies />} />
+        <Route path="/add" element={<AddMovie />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
