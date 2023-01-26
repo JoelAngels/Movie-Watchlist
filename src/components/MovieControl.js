@@ -7,7 +7,10 @@ import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
 
 import { useDispatch } from "react-redux";
-import { addMovieToWatched } from "../features/addMovie/moviesSlice";
+import {
+  addMovieToWatched,
+  removeMovieFromWatchList,
+} from "../features/addMovie/moviesSlice";
 
 const MovieControl = ({ type, movie, display }) => {
   const dispatch = useDispatch();
@@ -31,7 +34,9 @@ const MovieControl = ({ type, movie, display }) => {
             <i className="fa-fw far fa-eye"></i>
           </ControlButton>
 
-          <ControlButton>
+          <ControlButton
+            onClick={() => dispatch(removeMovieFromWatchList(movie.id))}
+          >
             <i className="fa-fw fa fa-times"></i>
           </ControlButton>
         </Stack>
