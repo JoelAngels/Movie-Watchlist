@@ -4,6 +4,7 @@ import Paper from "@mui/material/Paper";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import { useGetMovieMutation } from "../../services/movieApi";
+import MovieSearchResult from "../../components/MovieSearchResult";
 
 const AddMovie = () => {
   const [query, setQuery] = useState("");
@@ -50,7 +51,7 @@ const AddMovie = () => {
               m1: 1,
               flex: 1,
               marginLeft: "30px",
-              fontFamily: "Montserrat, sans-serif",
+              // fontFamily: "Montserrat, sans-serif",
               fontWeight: "600",
             }}
             placeholder="Search Your Movie"
@@ -64,7 +65,9 @@ const AddMovie = () => {
         </Paper>
         <div className="results">
           {movies?.results?.length > 0 &&
-            movies?.results?.map((movie) => <li>{movie.title}</li>)}
+            movies?.results?.map((movie) => (
+              <MovieSearchResult key={movie.id} movie={movie} />
+            ))}
         </div>
       </div>
     </div>

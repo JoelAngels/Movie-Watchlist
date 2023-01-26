@@ -25,7 +25,6 @@ const Header = () => {
             <Link to="/">
               <Button
                 color="inherit"
-                font-family
                 style={{
                   fontWeight: "600",
                   fontSize: "20px",
