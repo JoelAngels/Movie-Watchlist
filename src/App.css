@@ -36,3 +36,31 @@ header .nav-links {
   margin-top: 20px;
   font-family: "Montserrat", sans-serif;
 }
+
+.movie-card {
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  border: 0;
+  display: block;
+}
+
+.movie-card img {
+  width: 100%;
+  display: block;
+}
+
+.movie-card .notdisplayed {
+  display: inline;
+  background-color: red;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  padding: 3px;
+  opacity: 1;
+  transition: all 0.3s ease;
+}

@@ -3,7 +3,7 @@ import Grid from "@mui/material/Grid";
 import MovieCard from "./MovieCard";
 
 //Movie Layout
-const MovieGrid = ({ movies }) => {
+const MovieGrid = ({ movies, type }) => {
   return (
     <Grid sx={{ flexGrow: 1 }} container spacing={2} mt={3}>
       <Grid item xs={12}>
@@ -11,7 +11,7 @@ const MovieGrid = ({ movies }) => {
           {movies.map((movie) => (
             <div key={movie.id}>
               <Grid item>
-                <MovieCard movie={movie} />
+                <MovieCard movie={movie} type={type} />
               </Grid>
             </div>
           ))}
