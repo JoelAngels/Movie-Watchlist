@@ -7,11 +7,24 @@ import CardMedia from "@mui/material/CardMedia";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import Moment from "react-moment";
-import { useDispatch } from "react-redux";
-import { addMovieToWatchList } from "../features/addMovie/moviesSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addMovieToWatchList,
+  selectAllWatchListMovies,
+} from "../features/addMovie/moviesSlice";
 
 const MovieSearchResult = ({ movie }) => {
   const dispatch = useDispatch();
+
+  const watchListMovies = useSelector(selectAllWatchListMovies);
+
+  //find movie we are adding to the watchlist
+
+  let storedMovies = watchListMovies.find((item) => item.id === movie.id);
+
+  //disable the button
+
+  const watchlistDisabled = storedMovies ? true : false;
 
   return (
     <Card sx={{ display: "flex", height: 170, m: 1 }}>
@@ -35,6 +48,7 @@ const MovieSearchResult = ({ movie }) => {
           <Stack spacing={2} direction="row" sx={{ mt: 6 }}>
             <Button
               variant="contained"
+              disabled={watchlistDisabled}
               onClick={() => dispatch(addMovieToWatchList(movie))}
             >
               Add To WatchList
