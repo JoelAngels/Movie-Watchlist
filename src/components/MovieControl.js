@@ -18,7 +18,7 @@ const MovieControl = ({ type, movie, display }) => {
     minWidth: "0 !important",
   }));
   return (
-    <div className="notdisplayed">
+    <div className={`notdisplayed ${display}`}>
       {type === "watchList" && (
         <Stack direction="row">
           <ControlButton>
