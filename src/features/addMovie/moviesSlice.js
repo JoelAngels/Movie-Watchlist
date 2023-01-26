@@ -5,7 +5,7 @@ const initialState = {
   watchListMovies: [],
 };
 
-const movieSlice = createSlice({
+const moviesSlice = createSlice({
   name: "movie",
   initialState,
 
@@ -16,5 +16,5 @@ const movieSlice = createSlice({
   },
 });
 
-export const { addMovieToWatchList } = movieSlice.action;
-export default movieSlice.reducer;
+export const { addMovieToWatchList } = moviesSlice.actions;
+export default moviesSlice.reducer;

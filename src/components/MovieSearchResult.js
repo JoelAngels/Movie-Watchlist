@@ -7,9 +7,12 @@ import CardMedia from "@mui/material/CardMedia";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import Moment from "react-moment";
-import { Movie } from "@mui/icons-material";
+import { useDispatch } from "react-redux";
+import { addMovieToWatchList } from "../features/addMovie/moviesSlice";
 
 const MovieSearchResult = ({ movie }) => {
+  const dispatch = useDispatch();
+
   return (
     <Card sx={{ display: "flex", height: 170, m: 1 }}>
       <CardMedia
@@ -29,7 +32,12 @@ const MovieSearchResult = ({ movie }) => {
           </Typography>
 
           <Stack spacing={2} direction="row" sx={{ mt: 6 }}>
-            <Button variant="contained">Add To WatchList</Button>
+            <Button
+              variant="contained"
+              onClick={() => dispatch(addMovieToWatchList(movie))}
+            >
+              Add To WatchList
+            </Button>
           </Stack>
         </CardContent>
       </Box>
