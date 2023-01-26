@@ -5,6 +5,7 @@ import { selectAllWatchedMovies } from "../addMovie/moviesSlice";
 import MovieGrid from "../../components/MovieGrid";
 
 import React from "react";
+import Message from "../../components/Message";
 
 const WatchedMovies = () => {
   //dispatch an actions so that movies can be added to our watchlist
@@ -22,7 +23,7 @@ const WatchedMovies = () => {
         </>
       ) : (
         <>
-          <h2>Please Add Movies</h2>
+          <Message title={"Please Add Your Watched Movie Here"} />
         </>
       )}
     </Container>
