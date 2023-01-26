@@ -9,7 +9,9 @@ import Button from "@mui/material/Button";
 import Moment from "react-moment";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  addMovieToWatched,
   addMovieToWatchList,
+  selectAllWatchedMovies,
   selectAllWatchListMovies,
 } from "../features/addMovie/moviesSlice";
 
@@ -17,14 +19,26 @@ const MovieSearchResult = ({ movie }) => {
   const dispatch = useDispatch();
 
   const watchListMovies = useSelector(selectAllWatchListMovies);
+  const watchedMovies = useSelector(selectAllWatchedMovies);
 
   //find movie we are adding to the watchlist
 
   let storedMovies = watchListMovies.find((item) => item.id === movie.id);
 
+  //if we add movie into watched, the watchlist button should still be disabled
+  let storedMoviesWatched = watchedMovies.find((item) => item.id === movie.id);
+
   //disable the button
 
-  const watchlistDisabled = storedMovies ? true : false;
+  const watchlistDisabled = storedMovies
+    ? true
+    : storedMoviesWatched
+    ? true
+    : false;
+
+  //if you click on add to watched, both buttons with be disabled to avoid duplication
+
+  const watchedDisabled = storedMoviesWatched ? true : false;
 
   return (
     <Card sx={{ display: "flex", height: 170, m: 1 }}>
@@ -53,6 +67,14 @@ const MovieSearchResult = ({ movie }) => {
             >
               Add To WatchList
             </Button>
+
+            <Button
+              variant="contained"
+              disabled={watchedDisabled}
+              onClick={() => dispatch(addMovieToWatched(movie))}
+            >
+              Add To Watched
+            </Button>
           </Stack>
         </CardContent>
       </Box>
@@ -61,3 +83,8 @@ const MovieSearchResult = ({ movie }) => {
 };
 
 export default MovieSearchResult;
+
+/*both movies cannot be in watched and watchlist at the same time, they all need to be at one places or the other, 
+ 
+  //if you click on add to watched, both buttons with be disabled to avoid duplication
+*/
