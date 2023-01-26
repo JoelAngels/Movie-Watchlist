@@ -14,7 +14,6 @@ header a {
   font-size: 1.25rem;
   text-decoration: none;
   font-family: "Montserrat", sans-serif;
-
   transition: all 0.3s ease;
 }
 
@@ -28,8 +27,4 @@ header .nav-links {
   list-style: none;
   display: flex;
   align-items: center;
-}
-
-Button {
-  font-family: "Montserrat", sans-serif;
 }

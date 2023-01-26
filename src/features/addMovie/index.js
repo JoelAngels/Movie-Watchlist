@@ -32,7 +32,13 @@ const AddMovie = () => {
           }}
         >
           <InputBase
-            sx={{ m1: 1, flex: 1 }}
+            sx={{
+              m1: 1,
+              flex: 1,
+              marginLeft: "30px",
+              fontFamily: "Montserrat, sans-serif",
+              fontWeight: "600",
+            }}
             placeholder="Search Your Movie"
             value={query}
             onChange={handleSearch}

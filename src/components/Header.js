@@ -29,7 +29,7 @@ const Header = () => {
                 style={{
                   fontWeight: "600",
                   fontSize: "20px",
-                  fontFamily: "Montserrat, sans-serif",
+                  fontFamily: "Montserrat sans-serif",
                 }}
               >
                 WatchList
