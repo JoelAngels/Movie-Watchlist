@@ -19,6 +19,7 @@ const MovieSearchResult = ({ movie }) => {
         component="img"
         sx={{ width: 151 }}
         image={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+        alt={movie.title}
       />
 
       <Box sx={{ display: "flex", flexDirection: "column" }}>
