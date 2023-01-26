@@ -6,7 +6,12 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
 
+import { useDispatch } from "react-redux";
+import { addMovieToWatched } from "../features/addMovie/moviesSlice";
+
 const MovieControl = ({ type, movie, display }) => {
+  const dispatch = useDispatch();
+
   const ControlButton = styled(Button)(({ _ }) => ({
     color: "#fefefe",
     backgroundColor: "transparent",
@@ -17,17 +22,16 @@ const MovieControl = ({ type, movie, display }) => {
     margin: "0",
     minWidth: "0 !important",
   }));
+
   return (
     <div className={`notdisplayed ${display}`}>
       {type === "watchList" && (
         <Stack direction="row">
-          <ControlButton>
+          <ControlButton onClick={() => dispatch(addMovieToWatched(movie))}>
             <i className="fa-fw far fa-eye"></i>
-            {/*pushing move into watchlist*/}
           </ControlButton>
 
           <ControlButton>
-            {/*removing move into watchlist*/}
             <i className="fa-fw fa fa-times"></i>
           </ControlButton>
         </Stack>

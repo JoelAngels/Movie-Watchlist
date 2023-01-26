@@ -31,7 +31,7 @@ const MovieCard = ({ movie, type }) => {
             alt={movie.title}
           />
           {/* Movie  */}
-          <MovieControl type={type} display={display} />
+          <MovieControl type={type} movie={movie} display={display} />
         </div>
       </Card>
     </div>
