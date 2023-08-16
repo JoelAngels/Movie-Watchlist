@@ -8,7 +8,7 @@ import moviesReducer from "../features/addMovie/moviesSlice";
 
 const persistConfig = {
   key: "root",
-  version: 1,
+  version: 1, //this version default is version: 1
   storage,
 };
 
