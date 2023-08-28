@@ -3,7 +3,6 @@ import { Container } from "@mui/material";
 import { useSelector } from "react-redux";
 import { selectAllWatchedMovies } from "../addMovie/moviesSlice";
 import MovieGrid from "../../components/MovieGrid";
-
 import React from "react";
 import Message from "../../components/Message";
 
